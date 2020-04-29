@@ -54,7 +54,7 @@
                     <archive>
                         <manifest>
                             <!-- Jar file entry point -->
-                            <mainClass>practice.cp.fun.dp.ExecuteFun</mainClass>
+                            <mainClass>practice.cp.fun.ExecuteFun</mainClass>
                             <classpathPrefix>dependency-jars/</classpathPrefix>
                         </manifest>
                     </archive>
