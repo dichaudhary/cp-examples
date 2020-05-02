@@ -9,6 +9,7 @@ import practice.cp.fun.graph.Node;
 import practice.cp.fun.graph.ResultingNode;
 import practice.cp.fun.graph.TopologicalShortestPath;
 import practice.cp.fun.graph.TopologicalSorting;
+import practice.cp.fun.sort.HeapSort;
 import practice.cp.fun.sort.MergeSort;
 import practice.cp.fun.sort.QuickSort;
 
@@ -28,6 +29,12 @@ public class ExecuteFun {
         //soring
         mergeSort();
         quickSort();
+        heapSort();
+    }
+
+    private static void heapSort() {
+        HeapSort heapSort = new HeapSort(new int[]{7, 6, 9, 3, 10, 1, 2, 80, 50, 5, 3, 10, 6}, 13);
+        int[] res = heapSort.heapSort();
     }
 
     private static void solveTopological() {
