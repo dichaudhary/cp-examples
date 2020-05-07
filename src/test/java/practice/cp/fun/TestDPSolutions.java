@@ -1,7 +1,8 @@
-package practice.cp.fun.dp;
+package practice.cp.fun;
 
 import org.junit.Assert;
 import org.junit.Test;
+import practice.cp.fun.dp.KnapsackNoRepetition;
 import practice.cp.fun.graph.Dijkstra;
 import practice.cp.fun.graph.Node;
 import practice.cp.fun.graph.ResultingNode;
