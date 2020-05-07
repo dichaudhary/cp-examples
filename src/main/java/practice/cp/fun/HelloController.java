@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import practice.cp.fun.dp.KnapsackNoRepetition;
 import practice.cp.fun.sort.QuickSort;
-import sun.security.util.ArrayUtil;
-
 import java.util.Arrays;
 import java.util.Date;
 import java.util.stream.Collectors;

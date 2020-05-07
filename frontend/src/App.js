@@ -25,11 +25,13 @@ function App () {
 )
 }*/
 import React, {Component, useState, useEffect} from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Knapsack from './dp/knapsack';
-import QuickSort from './sort/QuickSort'
+import QuickSort from './sort/QuickSort';
 import { Link, Redirect } from 'react-router-dom';
+import Header from './header/header';
+import history from './history';
+import { Button } from 'react-bootstrap';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 class App extends Component {
     constructor() {
@@ -39,21 +41,20 @@ class App extends Component {
     render = () => {
     return (
     <div className="App">
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo"/>
-            <p>A few well known problems, click to solve</p>
-        </header>
-        <Router>
-            <div>
-              <a href="/knapsack">Knapsack</a>
-              <br/><br/>
-              <a href="/quicksort">QuickSort</a>
-              <Switch>
-                <Route path="/knapsack" component={Knapsack} />
-                <Route path="/quicksort" component={QuickSort} />
-              </Switch>
-            </div>
-        </Router>
+         <Header/>
+         <Router history={history}>
+                     <div>
+                       <Switch>
+                         <Route path="/knapsack" exact component={Knapsack} />
+                         <Route path="/quicksort" exact component={QuickSort} />
+                       </Switch>
+                     </div>
+         </Router>
+         <form>
+             <a href="/knapsack" onClick={() => history.push('/knapsack')}>Knapsack</a>
+             <br/><br/>
+             <a href="/quicksort" onClick={() => history.push('/quicksort')}>QuickSort</a>
+         </form>
     </div>
     );
     }

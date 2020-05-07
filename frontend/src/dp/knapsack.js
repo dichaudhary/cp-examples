@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Header from '../header/header'
 
 export default function Knapsack(){
     const [message, setMessage] = useState("");
@@ -52,7 +53,7 @@ export default function Knapsack(){
           <br/><br/><br/>
           <input type="submit" value="Submit"/>
         </form>
-        <br/><br/><br/>
+        <br/>
         <p>Answer for the current inputs is {message}</p>
     </div>
 )
