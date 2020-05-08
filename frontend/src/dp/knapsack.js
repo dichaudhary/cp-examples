@@ -38,17 +38,17 @@ export default function Knapsack(){
           <label>
             Type space separated elements of profit array:
           </label>
-                      <input type="text" name="profit" />
+                      <input type="text" placeholder={profit} name="profit" />
 
           <br/><br/><br/>
           <label>
               Type space separated elements of weight array:
-              <input type="text" name="weight" />
+              <input type="text" placeholder={weight} name="weight" />
           </label>
           <br/><br/><br/>
           <label>
               Enter capacity to be maximised:
-              <input type="text" name="capacity" />
+              <input type="text" placeholder={capacity} name="capacity" />
           </label>
           <br/><br/><br/>
           <input type="submit" value="Submit"/>

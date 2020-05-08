@@ -14,11 +14,7 @@ import java.util.stream.Collectors;
 
 @RestController
 public class HelloController {
-    @GetMapping("/api/hello")
-    public String hello() {
-        return "Hello, the time at the server is now " + new Date() + "\n";
-    }
-
+    //Solving problems rest points
     @RequestMapping(value = "/api/knapsacknorepetition", method= RequestMethod.POST, produces = "application/json; charset=UTF-8", consumes = "application/json; charset=UTF-8")
     @ResponseBody
     public String hello(@RequestBody KnapsackPOJO knapsackPOJO) {
@@ -28,7 +24,7 @@ public class HelloController {
     @RequestMapping(value = "/api/quicksort", method= RequestMethod.POST, produces = "application/json; charset=UTF-8", consumes = "application/json; charset=UTF-8")
     @ResponseBody
     public String hello(@RequestBody QuicksortPojo quickSort) {
-        return String.valueOf(solveQuickSort(quickSort.getUnsortedArray()));
+        return solveQuickSort(quickSort.getUnsortedArray());
     }
 
     private String solveQuickSort(String unsortedArray) {
@@ -42,10 +38,6 @@ public class HelloController {
         int[] profitnumbers = Arrays.stream(profit.split(" ")).mapToInt(Integer::parseInt).toArray();
         int[] weightnumbers = Arrays.stream(weight.split(" ")).mapToInt(Integer::parseInt).toArray();
         int capacityNumber = Integer.parseInt(capacity);
-        String[] profits = profit.split(" ");
-        Arrays.stream(profits).map(value-> {
-            return Integer.valueOf(value);
-        }).collect(Collectors.toList());
         KnapsackNoRepetition knapsackNoRepetition = new KnapsackNoRepetition(weightnumbers, profitnumbers, capacityNumber);
         return knapsackNoRepetition.solveKnapsack();
     }
