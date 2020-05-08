@@ -8,15 +8,15 @@ mvn package to build a jar of the practice work.
 This project is now an integration of react and spring , Do the following to give input for the problems on UI.
 
 run 
-mvn spring-boot:run 
+# mvn spring-boot:run 
 
 and you can access the server at localhost:8080
 
 go inside frontend directory
 
-cd frontend
+# cd frontend
 run
-npm start
+# npm start
 
 your react UI is ready at localhost:3000
 
