@@ -45,15 +45,18 @@ class QuickSort extends Component {
         return (
             <div>
             <form onSubmit={(event) => this.onSubmit(event)}>
-                      <br/>
-                      <label>
-                        Type space separated elements of profit array:
-                      </label>
-                      <input type="text" name="unsortedArray" value={this.state.unsortedArray} onChange={this.handleChange}/>
-                      <br/><br/><br/>
-                      <input type="submit" value="Submit"/>
+                <br/>
+                <label>
+                    Type space separated elements of profit array:
+                </label>
+                <input type="text" name="unsortedArray" value={this.state.unsortedArray} onChange={this.handleChange}/>
+                    <br/><br/>
+                <input type="submit" value="Submit"/>
             </form>
             <p>Answer for the current inputs is {this.state.sortedArray}</p>
+            <br/>
+            <p>Navigate to other problems</p>
+            <br/>
             </div>
         );
     }

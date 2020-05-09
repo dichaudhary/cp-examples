@@ -55,6 +55,9 @@ export default function Knapsack(){
         </form>
         <br/>
         <p>Answer for the current inputs is {message}</p>
+        <br/>
+        <p>Navigate to other problems</p>
+        <br/>
     </div>
 )
 }

@@ -4,7 +4,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import practice.cp.fun.backtracking.GraphColoring;
 import practice.cp.fun.backtracking.NQueenProb;
+import practice.cp.fun.dp.Box;
+import practice.cp.fun.dp.BoxStackingProblem;
+import practice.cp.fun.recursion.EggProblem;
 import practice.cp.fun.dp.KnapsackNoRepetition;
+import practice.cp.fun.dp.MaxLengthChain;
+import practice.cp.fun.dp.MaxLengthChainTopDown;
+import practice.cp.fun.dp.MinimumOperations;
 import practice.cp.fun.graph.BellmanFord;
 import practice.cp.fun.graph.Dijkstra;
 import practice.cp.fun.graph.Node;
@@ -25,6 +31,7 @@ public class SpringAndReactApplication {
 		//graph
 		solveBellmanFord();
 		solveTopological();
+		solveEggProblem();
 		//backtracking
 		solveNQueen();
 		solveGraphColoring();
@@ -32,8 +39,48 @@ public class SpringAndReactApplication {
 		mergeSort();
 		quickSort();
 		heapSort();
+		//more dp standard problems
+		solveMinimumOperations();
+		solveMaxLengthChain();
+		solveBoxStackingProb();
+		//recursion
+		solveEggProblemRecursion();
+		//spring boot jar
 		SpringApplication.run(SpringAndReactApplication.class, args);
 	}
+
+	private static void solveEggProblem() {
+		practice.cp.fun.dp.EggProblem eggProblem = new practice.cp.fun.dp.EggProblem(2, 10);
+		eggProblem.findEggNonBreaking();
+	}
+
+	private static void solveEggProblemRecursion() {
+		EggProblem eggProblem = new EggProblem(2, 10);
+		eggProblem.findEggNonBreakingFloorRecursive();
+	}
+
+	private static void solveBoxStackingProb() {
+		Box[] arr = new Box[4];
+		arr[0] = new Box(4, 6, 7);
+		arr[1] = new Box(1, 2, 3);
+		arr[2] = new Box(4, 5, 6);
+		arr[3] = new Box(10, 12, 32);
+		BoxStackingProblem boxStackingProblem = new BoxStackingProblem(arr);
+		boxStackingProblem.getMaxHeight();
+	}
+
+	private static void solveMaxLengthChain() {
+		MaxLengthChain maxLengthChain = new MaxLengthChain(new int[][] {{778, 887}, {794, 916}, {336, 387}, {493, 650}, {363, 422}, {28, 691}, {60, 764}, {541, 927}, {173, 427}, {212, 737}, {369, 568}, {430, 783}, {531, 863}, {68, 124}, {136, 930}, {23, 803}, {59, 70}, {168, 394}, {12, 457}, {43, 230}, {374, 422}, {785, 920}, {199, 538}, {316, 325}, {371, 414}, {92, 527}, {957, 981}, {863, 874}, {171, 997}, {282, 306}, {85, 926}, {328, 337}, {506, 847}, {314, 730}});
+		maxLengthChain.getMaxLengthChain();
+		MaxLengthChainTopDown maxLengthChainTopDown = new MaxLengthChainTopDown(new int[][] {{778, 887}, {794, 916}, {336, 387}, {493, 650}, {363, 422}, {28, 691}, {60, 764}, {541, 927}, {173, 427}, {212, 737}, {369, 568}, {430, 783}, {531, 863}, {68, 124}, {136, 930}, {23, 803}, {59, 70}, {168, 394}, {12, 457}, {43, 230}, {374, 422}, {785, 920}, {199, 538}, {316, 325}, {371, 414}, {92, 527}, {957, 981}, {863, 874}, {171, 997}, {282, 306}, {85, 926}, {328, 337}, {506, 847}, {314, 730}});
+        maxLengthChainTopDown.getMaxLengthChain(0, 0, 1);
+	}
+
+	private static void solveMinimumOperations() {
+		MinimumOperations minimumOperations = new MinimumOperations(8);
+		minimumOperations.getMinimumOperations();
+	}
+
 	private static void heapSort() {
 		HeapSort heapSort = new HeapSort(new int[]{7, 6, 9, 3, 10, 1, 2, 80, 50, 5, 3, 10, 6}, 13);
 		heapSort.heapSort();
