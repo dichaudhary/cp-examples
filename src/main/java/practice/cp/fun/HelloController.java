@@ -1,6 +1,5 @@
 package practice.cp.fun;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,12 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 import practice.cp.fun.dp.KnapsackNoRepetition;
 import practice.cp.fun.sort.QuickSort;
 import java.util.Arrays;
-import java.util.Date;
-import java.util.stream.Collectors;
+
 
 @RestController
 public class HelloController {
-    //Solving problems rest points
+
     @RequestMapping(value = "/api/knapsacknorepetition", method= RequestMethod.POST, produces = "application/json; charset=UTF-8", consumes = "application/json; charset=UTF-8")
     @ResponseBody
     public String hello(@RequestBody KnapsackPOJO knapsackPOJO) {

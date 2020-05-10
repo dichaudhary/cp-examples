@@ -4,18 +4,21 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import practice.cp.fun.backtracking.GraphColoring;
 import practice.cp.fun.backtracking.NQueenProb;
+import practice.cp.fun.bitmagic.MaximumSubsetXOR;
 import practice.cp.fun.dp.Box;
 import practice.cp.fun.dp.BoxStackingProblem;
-import practice.cp.fun.recursion.EggProblem;
 import practice.cp.fun.dp.KnapsackNoRepetition;
 import practice.cp.fun.dp.MaxLengthChain;
 import practice.cp.fun.dp.MaxLengthChainTopDown;
 import practice.cp.fun.dp.MinimumOperations;
 import practice.cp.fun.graph.BellmanFord;
 import practice.cp.fun.graph.Dijkstra;
+import practice.cp.fun.graph.KruskalAlgorithm;
 import practice.cp.fun.graph.Node;
+import practice.cp.fun.graph.PrimsAlgorithm;
 import practice.cp.fun.graph.TopologicalShortestPath;
 import practice.cp.fun.graph.TopologicalSorting;
+import practice.cp.fun.recursion.EggProblem;
 import practice.cp.fun.sort.HeapSort;
 import practice.cp.fun.sort.MergeSort;
 import practice.cp.fun.sort.QuickSort;
@@ -32,6 +35,8 @@ public class SpringAndReactApplication {
 		solveBellmanFord();
 		solveTopological();
 		solveEggProblem();
+		solvePrimsAlgo();
+		solveKruskalAlgo();
 		//backtracking
 		solveNQueen();
 		solveGraphColoring();
@@ -39,14 +44,45 @@ public class SpringAndReactApplication {
 		mergeSort();
 		quickSort();
 		heapSort();
-		//more dp standard problems
+		//more standard dp problems
 		solveMinimumOperations();
 		solveMaxLengthChain();
 		solveBoxStackingProb();
 		//recursion
 		solveEggProblemRecursion();
+		//bit magic
+		solveGausianElimination();
 		//spring boot jar
 		SpringApplication.run(SpringAndReactApplication.class, args);
+	}
+
+	private static void solveKruskalAlgo() {
+		KruskalAlgorithm kruskalAlgorithm = new KruskalAlgorithm(0, 5);
+		kruskalAlgorithm.addEdge(0, new Node(0, 1, 2));
+		kruskalAlgorithm.addEdge(0, new Node(0, 3, 6));
+		kruskalAlgorithm.addEdge(1, new Node(1, 2, 3));
+		kruskalAlgorithm.addEdge(1, new Node(1, 3, 8));
+		kruskalAlgorithm.addEdge(1, new Node(1, 4, 5));
+		kruskalAlgorithm.addEdge(2, new Node(2, 4, 7));
+		kruskalAlgorithm.addEdge(3, new Node(3, 4, 9));
+		kruskalAlgorithm.findMSTUsingKruskalAlgorithm();
+	}
+
+	private static void solvePrimsAlgo() {
+		PrimsAlgorithm primsAlgorithm = new PrimsAlgorithm(0, 5);
+		primsAlgorithm.addEdge(0, new Node(0, 1, 2));
+		primsAlgorithm.addEdge(0, new Node(0, 3, 6));
+		primsAlgorithm.addEdge(1, new Node(1, 2, 3));
+		primsAlgorithm.addEdge(1, new Node(1, 3, 8));
+		primsAlgorithm.addEdge(1, new Node(1, 4, 5));
+		primsAlgorithm.addEdge(2, new Node(2, 4, 7));
+		primsAlgorithm.addEdge(3, new Node(3, 4, 9));
+		primsAlgorithm.findMSTUsingPrimsAlgorithm();
+	}
+
+	private static void solveGausianElimination() {
+		MaximumSubsetXOR maximumSubsetXOR = new MaximumSubsetXOR(new int[]{1, 2, 3, 4, 5, 6, 22, 33, 44, 22, 111});
+		maximumSubsetXOR.getMaximumsubsetXOR();
 	}
 
 	private static void solveEggProblem() {

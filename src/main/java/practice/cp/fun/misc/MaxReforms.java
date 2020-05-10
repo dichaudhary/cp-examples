@@ -1,6 +1,5 @@
 package practice.cp.fun.misc;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class MaxReforms {
