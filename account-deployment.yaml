@@ -1,0 +1,31 @@
+kind: "DeploymentConfig"
+apiVersion: "v1"
+metadata:
+  name: "cp-examples"
+spec:
+  template:
+    metadata:
+      labels:
+        name: "cp-examples"
+    spec:
+      containers: # (1)
+        - name: "cp-examples"
+          image: "cp-examples/cp-examples:latest"
+          ports:
+            - containerPort: 8095
+              protocol: "TCP"
+  replicas: 1 # (2)
+  triggers: # (3)
+    - type: "ConfigChange"
+    - type: "ImageChange"
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - "cp-examples"
+        from:
+          kind: "ImageStreamTag"
+          name: "cp-examples:latest"
+  strategy: # (4)
+    type: "Rolling"
+  paused: false
+  revisionHistoryLimit: 2
