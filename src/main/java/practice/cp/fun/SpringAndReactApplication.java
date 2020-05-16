@@ -11,11 +11,13 @@ import practice.cp.fun.dp.KnapsackNoRepetition;
 import practice.cp.fun.dp.MaxLengthChain;
 import practice.cp.fun.dp.MaxLengthChainTopDown;
 import practice.cp.fun.dp.MinimumOperations;
+import practice.cp.fun.dp.ShortestPathFromSRCToDEST;
 import practice.cp.fun.graph.BellmanFord;
 import practice.cp.fun.graph.Dijkstra;
 import practice.cp.fun.graph.KruskalAlgorithm;
 import practice.cp.fun.graph.Node;
 import practice.cp.fun.graph.PrimsAlgorithm;
+import practice.cp.fun.graph.SortedDictionaryAlienLanguage;
 import practice.cp.fun.graph.TopologicalShortestPath;
 import practice.cp.fun.graph.TopologicalSorting;
 import practice.cp.fun.recursion.EggProblem;
@@ -37,6 +39,7 @@ public class SpringAndReactApplication {
 		solveEggProblem();
 		solvePrimsAlgo();
 		solveKruskalAlgo();
+		solveAlienDictionary();
 		//backtracking
 		solveNQueen();
 		solveGraphColoring();
@@ -48,12 +51,32 @@ public class SpringAndReactApplication {
 		solveMinimumOperations();
 		solveMaxLengthChain();
 		solveBoxStackingProb();
+		solveSRTPathFromSRCToDest();
 		//recursion
 		solveEggProblemRecursion();
 		//bit magic
 		solveGausianElimination();
 		//spring boot jar
 		SpringApplication.run(SpringAndReactApplication.class, args);
+	}
+
+	private static void solveSRTPathFromSRCToDest() {
+		int[][] matrix = {{1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
+				{1, 0, 1, 0, 1, 1, 1, 0, 1, 1 },
+				{1, 1, 1, 0, 1, 1, 0, 1, 0, 1 },
+				{0, 0, 0, 0, 1, 0, 0, 0, 0, 1 },
+				{1, 1, 1, 0, 1, 1, 1, 0, 1, 0 },
+				{1, 0, 1, 1, 1, 1, 0, 1, 0, 0 },
+				{1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+				{1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
+				{1, 1, 0, 0, 0, 0, 1, 0, 0, 1 }};
+		ShortestPathFromSRCToDEST shortestPathFromSRCToDEST = new ShortestPathFromSRCToDEST(matrix, 0, 0, 8, 9);
+		shortestPathFromSRCToDEST.getShortestPath();
+	}
+
+	private static void solveAlienDictionary() {
+		SortedDictionaryAlienLanguage sortedDictionaryAlienLanguage = new SortedDictionaryAlienLanguage(new String[]{"baa", "abcd", "abca", "cab", "cad"}, 4);
+		sortedDictionaryAlienLanguage.getSortedVertices();
 	}
 
 	private static void solveKruskalAlgo() {
