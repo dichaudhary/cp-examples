@@ -5,12 +5,14 @@ import java.util.Scanner;
 public class GCDOfLCMPair {
     public static long getGcdOfLCMPair(long [] arr) {
         int n = arr.length;
-        long ans = 0;
-        for (int i=1; i<n; i++) {
-            for (int j=0; j<i; j++) {
-                long gcd = findGCD(arr[ i ], arr[ j]);
-                ans = findGCD(ans, ((arr[ i ] * arr[ j]) / gcd));
-            }
+        long []suff = new long[n];
+        suff[n-1] = arr[n-1];
+        for (int i=n-2; i>=0; i--) {
+            suff[i] = findGCD(arr[i], suff[i + 1]);
+        }
+        long ans = (arr[0]*suff[1])/findGCD(arr[0], suff[1]);;
+        for (int i=1; i<n-1; i++) {
+           ans = findGCD(ans, (arr[i]*suff[i+1])/findGCD(arr[i], suff[i+1]));
         }
         return ans;
     }
